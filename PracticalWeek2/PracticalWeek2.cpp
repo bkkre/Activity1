@@ -68,9 +68,10 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-/* function to read number from standard input (keyboard) */ int getNumber();
+/* function to read number from standard input (keyboard) */ 
+void getNumber(int*);
 /* function to calculate the sum of two numbers */
-int calculateSum(int, int);
+void calculateSum(int*, int*, int*);
 /* function to display details to the screen */
 void displayDetails(void);
 int main() {
@@ -80,29 +81,27 @@ int main() {
 	displayDetails();
 	/* prompt for and read first number */
 	printf("Please enter first number : ");
-	num1 = getNumber();
+	getNumber(&num1);
 	/* prompt for and read second number */
 	printf("Please enter second number: ");
-	num2 = getNumber();
+	getNumber(&num2);
 	/* add two numbers together and display to screen */
-	sum = calculateSum(num1, num2);
+	calculateSum(&sum, &num1, &num2);
 	printf("\nSum of %d and %d is: %d\n\n", num1, num2, sum);
 	return 0;
 }
 /* function to read number from standard input (keyboard) */
-int getNumber() {
-	int num;
-	scanf("%d", &num);
-	return num;
+void getNumber(int* number) {
+	scanf("%d", number);
 }
 /* function to calculate the sum of two numbers */
-int calculateSum(int number1, int number2) {
-	return number1 + number2;
+void calculateSum(int* total, int* number1, int* number2) {
+	*total = *number1 + *number2;
 }
 /* function to display details to the screen */
 void displayDetails(void) {
-	printf("Author : Your Name\n");
-	printf("Stud ID : Your Student Id\n");
-	printf("Email ID : Your Email Id\n");
+	printf("Author : Jay Baker\n");
+	printf("Stud ID : bakjp005\n");
+	printf("Email ID : bakjp005@mymail.unisa.edu.au\n");
 	printf("This is my own work as defined by the\n"); printf("University's Academics conduct Policy.\n\n");
 }/* end function displayDetails */
